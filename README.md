@@ -37,3 +37,13 @@ The agent may return:
 Then it identifies ETH as the largest percentage discrepancy and pauses for confirmation.
 
 > This project demonstrates an agentic workflow, not a guaranteed arbitrage strategy. Fees, funding, slippage, execution latency and market movement can eliminate a spread.
+
+## Implementation
+
+The core ranking and spread calculations are implemented in
+`src/spread_analyzer.py`. Live market values are supplied by Binance
+Agent OS/MCP; the example data in the module is test data only.
+
+The project intentionally separates analysis from execution. An order
+cannot be placed during the scan phase: execution is gated by explicit
+user confirmation.
